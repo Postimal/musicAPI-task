@@ -1,0 +1,25 @@
+body {
+  box-sizing: border-box;
+  background: linear-gradient(
+    150deg,
+    rgba(40, 207, 219, 0.942) 30%,
+    #12d6bc 62%,
+    rgba(13, 150, 204, 0.842) 92%
+  );
+  font-family: monospace;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.tracks {
+  padding: 2rem 0;
+  background-color: #fff;
+}

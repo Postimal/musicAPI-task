@@ -1,0 +1,44 @@
+.form-box {
+  height: 100px;
+  max-width: 300px;
+  padding: 40px 30px;
+  border: 2px solid #ddd;
+  text-align: center;
+  .form {
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      background-color: #fff;
+      border-radius: 10px;
+      &__svg {
+        transform: translateY(5px);
+      }
+      &__text-input {
+        padding: 6px 8px;
+        border: none;
+      }
+      &__button {
+        height: 35px;
+        padding: 6px 8px;
+        margin-left: 2px;
+        color: #000;
+        background: linear-gradient(90deg, #10b7f4 0, #128df6);
+        text-transform: uppercase;
+        border: none;
+        font-weight: bold;
+        transition: color 0.2s;
+        &:hover {
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__error-message {
+    display: none;
+    color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
