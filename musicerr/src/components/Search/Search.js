@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import './Search.scss';
+import React, { useRef, useEffect } from "react";
+import "./Search.scss";
 
 const Search = ({ search, handleChange, param }) => {
   const inputEl = useRef(null);
@@ -27,7 +27,10 @@ const Search = ({ search, handleChange, param }) => {
             value={param}
             placeholder="Search for artist or song"
           />
-          <button type="submit" className="form-inner__button button--blue">
+          <button
+            type="submit"
+            className="form-inner__button button button--blue"
+          >
             search
           </button>
         </div>

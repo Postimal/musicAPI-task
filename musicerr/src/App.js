@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import './App.scss';
-import Search from './components/Search/Search';
-import Tracks from './components/Tracks/Tracks';
-import Pagination from './components/Pagination/Pagination';
+import React, { useState } from "react";
+import "./App.scss";
+import Search from "./components/Search/Search";
+import Tracks from "./components/Tracks/Tracks";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
-  const [param, setParams] = useState('');
+  const [param, setParams] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [tracksPerPage] = useState(10);
@@ -17,9 +17,9 @@ function App() {
   };
 
   const checkIfAnyDataFitToQuery = () => {
-    document.querySelector('.err-2').style.display = 'block';
+    document.querySelector(".err-2").style.display = "block";
     setTimeout(() => {
-      document.querySelector('.err-2').style.display = 'none';
+      document.querySelector(".err-2").style.display = "none";
     }, 3000);
   };
 
@@ -37,15 +37,16 @@ function App() {
           checkIfAnyDataFitToQuery();
         }
         setLoading(false);
-        setParams('');
+        setCurrentPage(1);
+        setParams("");
       } catch (error) {
         setLoading(false);
         setError(error.message);
       }
     } else if (param.length === 0) {
-      document.querySelector('.err-1').style.display = 'block';
+      document.querySelector(".err-1").style.display = "block";
       setTimeout(() => {
-        document.querySelector('.err-1').style.display = 'none';
+        document.querySelector(".err-1").style.display = "none";
       }, 3000);
     }
   };
@@ -69,6 +70,7 @@ function App() {
         tracksPerPage={tracksPerPage}
         paginate={paginate}
         currentPage={currentPage}
+        loading={loading}
       />
     </>
   );

@@ -1,10 +1,10 @@
-import React from 'react';
-import './Tracks.scss';
-import TrackTab from './TrackTab/TrackTab';
+import React from "react";
+import "./Tracks.scss";
+import TrackTab from "./TrackTab/TrackTab";
 
 const Tracks = ({ data, error, loading }) => {
   if (loading) {
-    return <div style={{ textAlign: 'center' }}>...loading...</div>;
+    return <div style={{ textAlign: "center" }}>...loading...</div>;
   }
 
   if (error) {

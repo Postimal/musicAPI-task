@@ -1,15 +1,20 @@
-.button--blue {
+button {
   height: 35px;
   padding: 6px 8px;
   margin-left: 2px;
-  color: #000;
-  background: linear-gradient(90deg, #10b7f4 0, #128df6);
+  color: #fff;
   text-transform: uppercase;
   border: none;
   font-weight: bold;
   transition: color 0.2s;
   &:hover {
     cursor: pointer;
-    color: #fff;
+    color: #000;
+  }
+  &.button--blue {
+    background: linear-gradient(90deg, #10b7f4 0, #128df6);
+  }
+  &.button--bluedark {
+    background: linear-gradient(90deg, #114d63 0, #05579e);
   }
 }

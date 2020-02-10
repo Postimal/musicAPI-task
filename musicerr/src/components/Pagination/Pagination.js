@@ -1,21 +1,30 @@
-import React from 'react';
-import './Pagination.scss';
+import React from "react";
+import "./Pagination.scss";
 
-const Pagination = ({ totalTracks, tracksPerPage, paginate, currentPage }) => {
+const Pagination = ({
+  totalTracks,
+  tracksPerPage,
+  paginate,
+  currentPage,
+  loading
+}) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalTracks / tracksPerPage); i++) {
     pageNumbers.push(i);
   }
 
+  if (loading) {
+    return null;
+  }
   if (!totalTracks) {
     return null;
   }
   return (
     <div style={{}} className="paginate-section">
       <button
-        className="paginate-section__button button--blue"
-        disabled={currentPage === 1 ? 'disabled' : null}
+        className="paginate-section__button button button--bluedark"
+        disabled={currentPage === 1 ? "disabled" : null}
         onClick={() => paginate(currentPage - 1)}
       >
         prev
@@ -23,7 +32,7 @@ const Pagination = ({ totalTracks, tracksPerPage, paginate, currentPage }) => {
       <ul className="paginate-section__page-list">
         {pageNumbers.map(number => (
           <li
-            className={number === currentPage ? 'active-page' : 'page'}
+            className={number === currentPage ? "page active" : "page"}
             key={number}
             onClick={() => paginate(number)}
           >
@@ -32,9 +41,9 @@ const Pagination = ({ totalTracks, tracksPerPage, paginate, currentPage }) => {
         ))}
       </ul>
       <button
-        className="paginate-section__button button--blue"
+        className="paginate-section__button button button--bluedark"
         disabled={
-          currentPage === totalTracks / tracksPerPage ? 'disabled' : null
+          currentPage >= totalTracks / tracksPerPage ? "disabled" : null
         }
         onClick={() => paginate(currentPage + 1)}
       >
