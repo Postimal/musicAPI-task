@@ -18,7 +18,7 @@ const Pagination = ({ totalTracks, tracksPerPage, paginate, currentPage }) => {
         disabled={currentPage === 1 ? 'disabled' : null}
         onClick={() => paginate(currentPage - 1)}
       >
-        prev page
+        prev
       </button>
       <ul className="paginate-section__page-list">
         {pageNumbers.map(number => (
@@ -38,7 +38,7 @@ const Pagination = ({ totalTracks, tracksPerPage, paginate, currentPage }) => {
         }
         onClick={() => paginate(currentPage + 1)}
       >
-        next page
+        next
       </button>
     </div>
   );
