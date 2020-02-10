@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import "./Search.scss";
+import React, { useRef, useEffect } from 'react';
+import './Search.scss';
 
 const Search = ({ search, handleChange, param }) => {
   const inputEl = useRef(null);
@@ -27,14 +27,14 @@ const Search = ({ search, handleChange, param }) => {
             value={param}
             placeholder="Search for artist or song"
           />
-          <button type="submit" className="form-inner__button">
+          <button type="submit" className="form-inner__button button--blue">
             search
           </button>
         </div>
       </form>
       <p className="form-box__error-message err-1">Input can't be empty!</p>
       <p className="form-box__error-message err-2">
-        Input can't contain special characters!
+        No song or artist match to query!
       </p>
     </div>
   );

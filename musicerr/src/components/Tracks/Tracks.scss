@@ -33,3 +33,21 @@
     background: #fff;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .tracks-container {
+    width: inherit;
+    max-width: 600px;
+    .track-tabs {
+      flex-direction: column;
+    }
+    .track-info {
+      justify-content: space-around;
+    }
+  }
+
+  .tab-link {
+    min-width: 80px;
+    margin-top: 2px;
+  }
+}

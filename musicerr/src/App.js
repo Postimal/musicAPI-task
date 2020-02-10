@@ -1,19 +1,26 @@
-import React, { useState } from "react";
-import "./App.scss";
-import Search from "./components/Search/Search";
-import Tracks from "./components/Tracks/Tracks";
-import Pagination from "./components/Pagination/Pagination";
+import React, { useState } from 'react';
+import './App.scss';
+import Search from './components/Search/Search';
+import Tracks from './components/Tracks/Tracks';
+import Pagination from './components/Pagination/Pagination';
 
 function App() {
-  const [param, setParams] = useState("");
+  const [param, setParams] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tracksPerPage] = useState(50);
+  const [tracksPerPage] = useState(10);
 
   const handleChange = e => {
     setParams(e.target.value);
+  };
+
+  const checkIfAnyDataFitToQuery = () => {
+    document.querySelector('.err-2').style.display = 'block';
+    setTimeout(() => {
+      document.querySelector('.err-2').style.display = 'none';
+    }, 3000);
   };
 
   const search = async e => {
@@ -25,26 +32,22 @@ function App() {
           `https://cors-anywhere.herokuapp.com/https://www.songsterr.com/a/ra/songs.json?pattern=${param}`
         );
         let data = await response.json();
-        console.log(data);
-        setData(data);
+        setData(data.slice(0, 100));
+        if (!data.length > 0) {
+          checkIfAnyDataFitToQuery();
+        }
         setLoading(false);
-        setParams("");
+        setParams('');
       } catch (error) {
         setLoading(false);
         setError(error.message);
       }
     } else if (param.length === 0) {
-      document.querySelector(".err-1").style.display = "block";
+      document.querySelector('.err-1').style.display = 'block';
       setTimeout(() => {
-        document.querySelector(".err-1").style.display = "none";
+        document.querySelector('.err-1').style.display = 'none';
       }, 3000);
     }
-    //  else if (!param.match(/^[a-zA-Z]+$/)) {
-    //   document.querySelector(".err-2").style.display = "block";
-    //   setTimeout(() => {
-    //     document.querySelector(".err-2").style.display = "none";
-    //   }, 3000);
-    // }
   };
 
   const indexOfLastTrack = currentPage * tracksPerPage;
