@@ -1,11 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./Search.scss";
 
 const Search = ({ search, handleChange, param }) => {
-  const inputEl = useRef(null);
-  useEffect(() => {
-    inputEl.current.focus();
-  }, []);
   return (
     <div className="form-box">
       <h2 className="form-box__title">Tab finder</h2>
@@ -22,10 +18,10 @@ const Search = ({ search, handleChange, param }) => {
           <input
             className="form-inner__text-input"
             type="text"
-            ref={inputEl}
             onChange={handleChange}
             value={param}
             placeholder="Search for artist or song"
+            autoFocus
           />
           <button
             type="submit"

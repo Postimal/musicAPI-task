@@ -14,14 +14,11 @@ const Pagination = ({
     pageNumbers.push(i);
   }
 
-  if (loading) {
-    return null;
-  }
-  if (!totalTracks) {
+  if (loading || !totalTracks) {
     return null;
   }
   return (
-    <div style={{}} className="paginate-section">
+    <div className="paginate-section">
       <button
         className="paginate-section__button button button--bluedark"
         disabled={currentPage === 1 ? "disabled" : null}
