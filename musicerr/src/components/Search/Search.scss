@@ -1,31 +1,30 @@
 @import "../../styles/buttons";
 
 .form-box {
-  height: 100px;
-  max-width: 290px;
-  padding: 40px 20px;
-  border: 2px solid #ddd;
-  text-align: center;
-  .form {
-    &-inner {
-      display: flex;
-      justify-content: space-between;
-      padding: 5px;
-      background-color: #fff;
-      border-radius: 10px;
-      &__svg {
-        transform: translateY(5px);
-      }
-      &__text-input {
-        padding: 6px;
-        border: none;
-      }
-    }
-  }
-  &__error-message {
-    display: none;
-    color: red;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
+	height: 100px;
+	max-width: 290px;
+	padding: 40px 20px;
+	border: 2px solid #ddd;
+	text-align: center;
+	.form {
+		&-inner {
+			display: flex;
+			justify-content: space-between;
+			padding: 5px;
+			background-color: #fff;
+			border-radius: 10px;
+			&__svg {
+				transform: translateY(5px);
+			}
+			&__text-input {
+				padding: 6px;
+				border: none;
+			}
+		}
+	}
+	&__error-message {
+		color: red;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
 }
